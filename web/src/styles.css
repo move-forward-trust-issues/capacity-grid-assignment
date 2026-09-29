@@ -30,3 +30,277 @@ td {
   padding: 0.5rem 0.75rem;
   text-align: left;
 }
+
+/* ---- Toolbar ---- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+button.link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: LinkText;
+  text-decoration: underline;
+  font-size: 0.85em;
+}
+
+.muted {
+  opacity: 0.6;
+}
+
+.field-error,
+.over-text {
+  color: light-dark(#b42318, #ff8f85);
+}
+
+.field-error {
+  font-size: 0.85rem;
+}
+
+/* ---- Panels & notices ---- */
+
+.summary {
+  margin: 0 0 0.75rem;
+}
+
+.panel,
+.notice {
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-color: light-dark(#b42318, #ff8f85);
+  background: light-dark(#fef3f2, #3a1512);
+}
+
+.notice span {
+  flex: 1;
+}
+
+/* ---- Grid ---- */
+
+.grid-scroll {
+  height: calc(100vh - 260px);
+  min-height: 320px;
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 6px;
+  position: relative;
+}
+
+[role='grid'] {
+  position: relative;
+}
+
+.grid-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: Canvas;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.head-cell {
+  box-sizing: border-box;
+  flex: none;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.grid-body {
+  position: relative;
+}
+
+.grid-row {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.sticky-name,
+.sticky-cap {
+  position: sticky;
+  z-index: 2;
+  background: Canvas;
+  flex: none;
+  box-sizing: border-box;
+}
+
+.sticky-name {
+  left: 0;
+}
+
+.sticky-cap {
+  border-right: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.name-cell {
+  padding: 0 0.75rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cap-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+.cap-cell.failed {
+  outline: 2px solid light-dark(#b42318, #ff8f85);
+  outline-offset: -2px;
+}
+
+.cap-value {
+  font-weight: 600;
+  min-width: 2.6em;
+}
+
+.edit-form {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.edit-form input {
+  width: 4.5rem;
+  font: inherit;
+}
+
+.edit-form .field-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+  background: Canvas;
+  z-index: 4;
+}
+
+.week-head {
+  align-items: flex-start;
+}
+
+.over-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: light-dark(#b42318, #ff8f85);
+}
+
+.cell {
+  box-sizing: border-box;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0 0.6rem;
+  font-size: 0.85rem;
+  border-left: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.cell.idle .cell-hours {
+  opacity: 0.45;
+}
+
+.cell.over {
+  background: light-dark(#fee4e2, #4a1a16);
+  color: light-dark(#7a271a, #ffd2cc);
+  font-weight: 600;
+}
+
+.cell-flag {
+  font-size: 0.75rem;
+}
+
+.bar {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: light-dark(#2e7d5b, #5fbf94);
+}
+
+.cell.full .bar span {
+  background: light-dark(#a15c07, #e5a94a);
+}
+
+/* ---- Loading ---- */
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skeleton-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skeleton-block {
+  display: block;
+  height: 32px;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-block {
+    animation: none;
+  }
+}
